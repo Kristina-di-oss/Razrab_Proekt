@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Кристина Осинкина</title>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+        //Функция для создания массива пользователем
+        function newMas(){
+            var n = Number(prompt("Введите количество элементов:"));
+            var nMas = [];
+            for(var i=0; i<n; i++){
+                nMas[i]=Number(prompt("Введите число:"));
+            }
+            return nMas;
+        }
+
+        //Функция для поиска индекса максимального элемента
+        function findIMax(arr){
+            var max=0;
+            for(var i=1; i<arr.length; i++){
+                if(arr[i]>arr[max]){
+                    max=i;
+                }
+            }
+            return max;
+        }
+        var a = Number(prompt("Введите начало интервала: "));
+        var b = Number(prompt("Введите конец интервала: "));
+
+        var myArr = newMas();
+        
+        //Поиск максимального элемента
+        var maxEl=myArr[findIMax(myArr)];
+
+        //Вычисляем сумму элементов массива, расположенных после первого положительного числа
+        var sumElArr = 0;
+        var indFirstPolozh = 0;
+        for(var i=0; i<=myArr.length; i++){
+            if(myArr[i]>0){
+                indFirstPolozh = i;
+                break;
+            }
+        }
+        for(var j = indFirstPolozh+1; j<myArr.length; j++){
+            sumElArr=myArr[j]+sumElArr;
+        }
+
+        //Преобразовать массив таким образом, чтобы сначала находились все элементы, целая часть которых лежит в интервале [a,b], а потом все остальные.
+        myArr.sort( (a, b) =>  a - b);
+        var newArr = myArr.filter(n => (Math.trunc(n)>=a)&(Math.trunc(n)<=b));
+        var difArr = myArr.filter(x => !newArr.includes(x));
+        var myArr = newArr.concat(difArr);
+
+        var str = myArr.join("; ");
+        document.writeln("Максимальный элемент массива: "+maxEl+"; Сумма элементов массива, расположенных после первого положительного элемента: "+sumElArr+"; Массив начинающийся с чисел, целые части которых находятся в интервале ["+a+"; "+b+"]: "+str);
+    </script>
+</head>
+<body>
+</body>
+</html>
