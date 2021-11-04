@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Кристина Осинкина</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <script type="text/javascript">
+        var x = Number(prompt("Координата x:"));
+        var y = Number(prompt("Координата y:"));
+        var z = Number(prompt("Координата z:"));
+        function MyVector(x, y, z){
+            this.x=x;
+            this.y=y;
+            this.z=z;
+            this.LengthVector=function(){
+                var len = ((this.x**2)+(this.y**2)+(this.z**2))**(1/2);
+                document.write("Длина вектора = "+len);
+            }
+        }
+        var myVect = new MyVector(x, y, z);
+        myVect.LengthVector();
+    </script>
+</body>
+</html>
