@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Кристина Осинкина</title>
+    <meta charset="utf-8">
+</head>
+<body style='background-color: white; color: black' class = "classBody">
+<h1>Кристина Осинкина</h1>
+<p><a href="https://github.com/" class="classA" style="color: black;">Ссылка</a></p>
+    <script type="text/javascript">
+        var a = prompt("Цвет фона:");
+        var b = prompt("Цвет текста:");
+        var c = prompt("Ссылка");
+        var myBody = document.querySelector("body.classBody");
+        myBody.setAttribute("style", `background-color:${a}`);
+        var a = document.documentElement;
+        a.style.color = b;
+        var anc = document.querySelector("a.classA");
+        anc.setAttribute("href", `${c}`);
+    </script>
+</body>
+</html>
